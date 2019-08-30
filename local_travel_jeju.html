@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Jeju</title>
+    <link href="css/content_local.css" rel="stylesheet" type="text/css" />       
+    <link href="plugins/web-fonts-with-css/css/all.css" rel="stylesheet" type="text/css" />   
+   <script src="js/jquery.1.12.4.js" type="text/javascript"></script>
+   <script src="plugins/bxslider/js/jquery.bxslider.js"></script>    
+	<style>
+		@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+		@import url(https://fonts.googleapis.com/css?family=Oleo+Script);
+    </style>
+   <script>
+        $(document).ready(function(){ 
+            $('.slider').bxSlider({
+                controls:false,
+                pager:false,
+                auto:true
+            });          
+        });
+    </script>    
+</head>
+<body>
+	<div id="container">
+		<header>          
+            <div class="nav_wrapper">
+                <nav class="menu">
+                    <ul>
+                        <li>                        
+                            <a href="index.html" targer="_blank">
+                                <i class="fas fa-home"></i>
+                            </a>
+                        </li>
+                        <li><a href="local_travel_jeju.html" title="제주도">제주도</a>
+                            <ul>
+                              <li><a href="#intro" title="제주도 소개">소개</a></li>
+                              <li><a href="#map1" title="제주도 관광지">관광지</a></li>
+                              <li><a href="#choice" title="제주도 번외추천!">번외추천!</a></li> 
+                            </ul>
+                        </li>
+                        <li><a href="local_travel_geoje.html" title="거제/통영">거제/통영</a>
+                            <ul>
+                              <li ><a href="#" title="거제/통영 소개">소개</a></li>
+                              <li ><a href="#" title="거제/통영 관광지">관광지</a></li>
+                              <li ><a href="#" title="거제/통영 번외추천!">번외추천!</a></li>      
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="slider">
+                <div class="header__01"></div>
+                <div class="header__02"></div>
+                <div class="header__03"></div>
+            </div>                 
+		</header>
+		
+		<section id="intro">
+			<div class="page-title">
+				<h1>제주도 소개</h1>
+			</div>
+			<div class="content">
+				<div class="photo">
+					<img src="images/jejuBeach.jpg" alt="">
+				</div>
+				<div class="text">
+					<p> 대한민국의 최남단에 위치한 특별자치도 </p>
+					<p> 우리나라 최대의 섬. 4면이 바다 </p>
+                    <p> 산과 바다 모두 멋있는 곳</p>               
+				</div>
+			</div>
+		</section>
+        <section id="map1">
+            <div class="page-title">
+		        <h1>관광지 1</h1>
+            </div>
+            <div class="content">
+                <div class="photo">
+		            <img src="images/jejuBeach1.jpg" alt="">
+                </div>
+                <div class="text">
+                    <h2>월정리해수욕장</h2>
+                    <ol>
+                        <li>포토 스팟이 많은 곳</li>
+                        <li>최근에 관광지로 급 부상</li>
+                        <li>제주도 동쪽코스 여행 할 때 추천해변!</li>
+                    </ol>
+                </div>
+            </div>
+        </section>  
+        <section id="map2">
+            <div class="page-title">
+		        <h1>관광지 2</h1>
+            </div>
+            <div class="content">
+                <div class="photo">
+		            <img src="images/jejuBeach2.jpg" alt="">
+                </div>
+                <div class="text">
+                    <h2>함덕해수욕장</h2>
+                    <ol>
+                        <li> “함덕 서우봉 해변” 이라고도 불림</li>
+                        <li> 에메랄드 빛깔을 띄는 제주도의 바닷가</li>
+                        <li>제주도 북쪽코스 여행 할 때 강추해변!</li>
+                    </ol>
+                </div>
+            </div>
+        </section>         
+        <section id="choice">
+            <div class="page-title">
+		        <h1>번외추천!</h1>
+            </div>
+            <div class="content">
+                <div class="photo">
+		            <img src="images/jejuOreum.jpg" alt="용눈이오름" style="border:1px solid white; border-radius:20%">
+                </div>
+                <div class="text">
+		            <h2>용눈이오름</h2>
+		            <ol>
+			            <li>여러종류의 화구로 이루어진 복합형 화산체 </li>
+			            <li>마치 용이 누워있는 형체라는 데서 연유하여 용눈이오름이라 부른다는 설이있다. </li>
+			            <li>일몰을 보러 가는 곳으로 추천!</li>
+		            </ol>
+                </div>
+			</div>
+		</section>
+
+        <footer>
+		    <p>This is my travel story</p>
+        </footer>
+	</div>
+</body>
+</html>

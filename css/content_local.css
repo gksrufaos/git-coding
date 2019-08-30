@@ -1,0 +1,287 @@
+  	* {
+    	margin:0;
+        padding:0;
+     }
+    body {
+        background: #fff;
+        font-family: "Jeju Gothic", serif;
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 1.3em;
+    }
+    p {
+        font-size: 1.3em;
+        line-height: 2.5;
+    }
+    li {
+        font-size: 1em;
+        line-height: 2;
+    }
+    .nav_wrapper {
+        width: 100%;
+        background: #000;
+        list-style: none;
+        z-index: 50;         
+    }
+
+    .menu {
+        width: 100%;
+        height: auto;
+        background: #000;
+        z-index: 50;         
+    }
+
+    .menu ul {
+        padding: 0px;
+        margin: 0px;
+        list-style: none;
+        position: relative;
+        display: inline-block;
+        z-index: 50;         
+    }
+
+    .menu > li > ul.sub_menu {
+        min-width: 10em;
+        padding: 4px 0;
+        background-color: #f4f4f4;
+        border: 1px solid #fff;        
+    }
+
+    .menu ul li { padding: 0px; }
+
+    .menu > ul > li { display: inline-block; }
+
+    .menu ul li a {
+        display: block;
+        text-decoration: none;
+        color: #fff;
+        font-size: 14px;
+    }
+
+    .menu ul li a:hover {
+        background: #efa666;
+        color: #fff;
+        transition: all .5s ease-out;
+    }
+
+    .menu ul li.hover > a {
+        background: #efa666;
+        color: #fff;     
+    }
+
+    .menu ul li > a { padding: 15px; }
+
+    .menu ul ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        min-width: 160px;
+        background: #000;
+    }
+
+    .menu ul li:hover > ul { display: block;}
+
+    .menu ul ul > li { position: relative; }
+
+    .menu ul ul > li a {
+        padding: 10px 15px;
+        height: auto;
+        background: #000;       
+    }
+    .menu ul ul > li a:hover {
+        background: #efa666;
+        color: #fff;        
+    }
+    .menu ul ul ul {
+        position: absolute;
+        left: 100%;
+        top: 0;
+    }        
+
+    /* 모바일 - 767px 이하 */
+    #container {
+        width: 100%;
+        margin: 0 auto;
+    }
+    header .header__01, header .slider{  
+        width: 100%;
+        height: 300px;
+        background: url(../images/jejuView.jpg) center no-repeat;
+        background-size: cover;
+        margin: 0;        
+    }
+    header .header__02, header .slider{  
+        width: 100%;
+        height: 300px;
+        background: url(../images/tongyoungView.jpg) center no-repeat;
+        background-size: cover;
+        margin: 0;        
+    } 
+    nav {
+        height: 50px;
+        background: #000;
+    }
+    #main-nav {
+        list-style: none;
+        margin: 0;
+        padding: 10px;
+    }
+    #main-nav li {
+        display: inline-block;		
+        color: #fff;
+        font-family: "맑은 고딕", 돋움;
+        font-size: 0.8em;
+        margin: 5px 15px;
+    }		
+    section {
+        position: relative;
+        width: 100%;
+        padding: 15px 5% 10px 5%;
+    }
+    #container section:nth-child(odd) {
+        background: #eee;
+    }
+    .page-title {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        padding: 30px 50px;
+    }
+    .page-title h1 {
+            margin-bottom: 30px;
+        }		
+    .content {
+        margin: 80px auto 10px;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 90%;
+        padding: 20px;
+    }		
+    .content ol {
+        margin-top: 20px;
+    }
+    .sub-titles {
+        color: #0094ff;
+        font-weight: 600;
+    }		
+    .photo {
+        display: none;
+    }
+    .photo_height {
+        display: none;
+    }        
+    footer {
+        position: relative;
+        width: 100%;
+        height: 100px;
+        background: #000;
+    }		
+    footer p {
+        font-family: 'Oleo Script', cursive;
+        font-size: 1.5em;
+        line-height: 100px;
+        color: white;
+        text-align: center;
+    }
+
+    /* 태블릿 - 768px 이상 */
+    @media screen and (min-width:760px) {
+        header .header__01, header .header__02, header .slider {
+            height: 400px;
+        }
+        #intro {
+            clear: left;   
+        }
+        #container section:nth-child(odd) {
+            background: #fff;
+        }    
+        #map1, #map2 {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 50%;
+            height: 400px;
+            float: left;
+            margin: 0;
+            border: 1px dotted #ccc;
+        }        
+        #choice {
+            clear: left;
+        }
+    }
+
+    /* PC - 992px 이상 */
+    @media screen and (min-width:992px) {
+        #container {
+            width: 995px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+        }
+		header .header__01, header .header__02, header .slider {
+		      height: 500px;
+        }
+        #container section:nth-child(odd) {
+            background: #eee;
+        }         
+        #intro, #map1,  #map2, #choice {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            clear: both;
+            position: relative;
+            width: 100%;
+            height: 420px;
+            padding: 15px 2% 10px 5%;
+        }
+        .content {
+            margin: 80px auto 10px;
+            width: 90%;
+            padding: 20px;
+		}
+        .photo {
+            width: 40%;
+            display: block;
+        }
+        .photo > img {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            margin-bottom: 30px;
+		}
+        .photo_height {
+            width: 40%;
+            display: block;
+        } 
+        .photo_height > img {
+            width: 100%;
+            max-width: 300px;
+            height: auto; 
+            margin-top: 20px;            
+            margin-bottom: 30px;
+            transform: rotate(90deg);    
+		}    
+        .text {
+            width: 42%;
+		}
+        #intro .photo, #map1 .photo, #map2 .photo , #map1 .photo_height, #map2 .photo_height {
+            float: left;
+            margin-right: 5%;
+		}
+		#intro .text, #map1 .text, #map2 .text {
+            float: left;
+		}
+		#choice .photo {
+            float: right;
+            margin-right: 5%;
+		}
+		#choice .text {
+            float: left;
+        }
+        footer {
+            clear: both;
+        }
+    }

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>geoje/tongyoung</title>
+    <link href="css/content_local.css" rel="stylesheet" type="text/css" />       
+    <link href="plugins/web-fonts-with-css/css/all.css" rel="stylesheet" type="text/css" />   
+   <script src="js/jquery.1.12.4.js" type="text/javascript"></script>
+   <script src="plugins/bxslider/js/jquery.bxslider.js"></script>    
+	<style>
+		@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+		@import url(https://fonts.googleapis.com/css?family=Oleo+Script);
+    </style>
+   <script>
+        $(document).ready(function(){ 
+            $('.slider').bxSlider({
+                controls:false,
+                pager:false,
+                auto:true
+            });          
+        });
+    </script>    
+</head>
+<body>
+	<div id="container">
+		<header>          
+            <div class="nav_wrapper">
+                <nav class="menu">
+                    <ul>
+                        <li>                        
+                            <a href="index.html" targer="_blank">
+                                <i class="fas fa-home"></i>
+                            </a>
+                        </li>
+                        <li><a href="local_travel_jeju.html" title="제주도">제주도</a>
+                            <ul>
+                              <li><a href="#intro" title="제주도 소개">소개</a></li>
+                              <li><a href="#map1" title="제주도 관광지">관광지</a></li>
+                              <li><a href="#choice" title="제주도 번외추천!">번외추천!</a></li> 
+                            </ul>
+                        </li>
+                        <li><a href="local_travel_geoje.html" title="거제/통영">거제/통영</a>
+                            <ul>
+                              <li ><a href="#" title="거제/통 소개">소개</a></li>
+                              <li ><a href="#" title="거제/통 관광지">관광지</a></li>
+                              <li ><a href="#" title="거제/통 번외추천!">번외추천!</a></li>      
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="slider">
+                <div class="header__01"></div>
+                <div class="header__02"></div>
+                <div class="header__03"></div>
+            </div>                 
+		</header>
+		
+		<section id="intro">
+			<div class="page-title">
+				<h1>거제/통영 소개</h1>
+			</div>
+			<div class="content">
+				<div class="photo">
+					<img src="images/geogeBeach.jpg" alt="">
+				</div>
+				<div class="text">
+					<p> 거제 - 우리나라에서 제주도 다음으로 큰 섬 </p>
+					<p> 통영 - 경상남도 남단에 위치해 있으며 동쪽은 거제시, 서쪽은 남해군, 북쪽은 고성군, 남쪽은 남해와 접하고 있다.</p>               
+				</div>
+			</div>
+		</section>
+        <section id="map1">
+            <div class="page-title">
+		        <h1>관광지 1</h1>
+            </div>
+            <div class="content">
+                <div class="photo">
+		            <img src="images/geogeOedo.jpg" alt="">
+                </div>
+                <div class="text">
+                    <h2>외도보타니아</h2>
+                    <ol>
+                        <li>개인이 30년에 걸쳐서 섬전체를 이국적인 정원으로 가꿔서 보존</li>
+                        <li>사계절 내내 푸르름을 감상할 수 있는 곳</li>
+                        <li>http://www.oedobotania.com/guide/ 참고</li>                   
+                    </ol>
+                </div>
+            </div>
+        </section>  
+        <section id="map2">
+            <div class="page-title">
+		        <h1>관광지 2</h1>
+            </div>
+            <div class="content">
+                <div class="photo">
+		            <img src="images/tongyoungBijindo.jpg" alt="">
+                </div>
+                <div class="text">
+                    <h2>통영비진도</h2>
+                    <ol>
+                        <li> 통영항에서 배로 한 시간 거리에 있음.</li>
+                        <li>두 개의 섬이 하나처럼 모래사장과 돌들로 이어져서 위에서 보면 최고 멋진 풍경을 볼수있다.</li>
+                        <li>비진도는 내항(마을) 외항으로 나눠져있다.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>         
+        <section id="choice">
+            <div class="page-title">
+		        <h1>번외추천!</h1>
+            </div>
+            <div class="content">
+                <div class="photo">
+		            <img src="images/tongyoungLuge.jpg" alt="용눈이오름" style="border:1px solid white; border-radius:20%">
+                </div>
+                <div class="text">
+		            <h2>스카이라인루지 통영</h2>
+		            <ol>
+			            <li>세계에서 6번째로 개장 </li>
+			            <li> 통영시에서 루지를 기획하면서 "하늘에서는 케이블카, 땅에서는 루지"라는 슬로건을 내놓음 </li>
+			            <li>남해를 보면서 즐길 수 있는 어른, 아이 모두 즐길 수 있는 루지</li>
+		            </ol>
+                </div>
+			</div>
+		</section>
+
+        <footer>
+		    <p>This is my travel story</p>
+        </footer>
+	</div>
+</body>
+</html>
