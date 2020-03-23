@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Baseball</title>
+    <style>
+        .startWrap{margin-top:10px;}
+        .inputWrap{margin-top:30px;}
+        .drawWrap{margin-top:10px;}
+        .inputWrap .inputWrapIn{width:20px;}
+        .drawWrap > ul > li {list-style: none;}
+    </style>
+</head>
+<body>
+    <div class="startWrap">
+        <button class="start" onclick="start();">게임 시작!</button>
+        <input type="hidden" id="gameAnswer" />
+    </div>
+    <div class="inputWrap">
+        <input type="text" class="inputWrapIn" id="inputNum01">
+        <input type="text" class="inputWrapIn" id="inputNum02">
+        <input type="text" class="inputWrapIn" id="inputNum03">
+        <button class="processBtn">입력</button>
+    </div>
+    <div class="drawWrap">
+        <ul id="drawWrapUl"></ul>
+    </div>
+    <script type="text/javascript" src="baseball.js"></script>
+</body>
+</html>
