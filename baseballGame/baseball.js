@@ -11,6 +11,7 @@
 var gameRoundNum = 3;
 var answerValArr = [];
 var processBtn = document.querySelector('.processBtn');
+var startBtn = document.querySelector('.start');
 var round = 0;
 
 // 게임 시작 랜덤 숫자 3개 받아오기
@@ -57,15 +58,13 @@ function drawRandomNum(randomNumVal){
 function baseBallProcess(){
   // 게이머가 입력한 값 배열에 넣는 함수 호출 --> 첫번째 프로세스
   var gameInputNum = inputNumber();
-
   // validation 함수 호출
   if(validateChk(gameInputNum)){
     // 정답과 게이머가 입력한 값 비교 프로세스 호출
     var compareProc = compareProcess(gameInputNum);
     // round 별 html 그리는 함수 호출 (x=0 strike, x=1 ball, x=2 out)
     drawInputNum(gameInputNum, compareProc);
-
-    //10라운드 전에 스트라이크 3개인지 확인하는 함수
+    //게임 끝났는지 확인하는 함수
     checkEndGame(compareProc[0]);
   }
 }
@@ -97,10 +96,7 @@ function inputNumber(){
 
  // validation 함수
 function validateChk(gameInputNum){
-  // 라운드 계산
-  round = round + 1;
-
-  if(round <= 10) {
+  if(round < 10) {
     if(document.getElementById('gameAnswer').value === ""){
         alert("게임 시작! 버튼을 클릭하세요.");
         return false;
@@ -117,10 +113,10 @@ function validateChk(gameInputNum){
         alert("입력된 숫자는 0~9 범위어야 합니다.");
         return false;
     }
+    // 라운드 계산
+    round = round + 1;
     return true;
-  }
-  else {
-    alert("게임실패!");
+  } else {
     return false;
   }
 }
@@ -196,10 +192,25 @@ function drawInputNum(gameInputNumArr, roundResult){
 }
 
 function checkEndGame(correct){
-  if(correct === 3){
-  	alert("게임 승리!");
-  	return;
+  if(round < 10){ // 10라운드 전에 3스트라이크가 됐을경우
+    if(correct === 3){
+      round = 10;
+      alert("게임승리! :)");
+      return true;
+    } else {
+      return false;
+    }
+  } else { // 10라운드 이후에도 3스트라이크가 아닐경우
+    if(correct !== 3){
+      alert("게임실패ㅠ");
+      return true;
+    } else {
+      return false;
+    }
   }
 }
+
+//게임시작 클릭 이벤트
+startBtn.addEventListener('click', start);
 //전송 클릭 이벤트
 processBtn.addEventListener('click', baseBallProcess);
