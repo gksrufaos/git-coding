@@ -71,7 +71,7 @@ function baseBallProcess(){
 
 // 초기화
 function init(){
-  alert('게임이 시작됩니다.');
+  alert('게임시작!');
 
   var ul = document.getElementById("drawWrapUl");
 
