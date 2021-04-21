@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="css/justifiedGallery.css" />
+    <script src="js/jquery.justifiedGallery.js"></script>
+    <style>
+      .galleryList{width:800px;}
+    </style>
+    <script type="text/javascript">
+      		$(document).ready(function () {
+            $("#mygallery").justifiedGallery({
+              rowHeight : 240,
+              lastRow : 'hide',
+              margins : 10,
+              caption: true
+            });
+          });
+    </script>
+  </head>
+  <body>
+    <div id="mygallery" class="galleryList">
+        <a href="">
+            <img alt="Title 1" src="wkl_t01_02-min.jpg"/>
+        </a>
+        <a href="">
+            <img alt="Title 2" src="wkl_t01_03-min.jpg"/>
+        </a>
+        <a href="">
+            <img alt="Title 3" src="20180731_gik_calendar3-min.jpg"/>
+        </a>
+        <a href="">
+            <img alt="Title 4" src="20180803_1-min.jpg"/>
+        </a>
+        <a href="">
+            <img alt="Title 5" src="20180803_2-min.jpg"/>
+        </a>
+        <a href="">
+            <img alt="Title 6" src="20180817_3_1-min.jpg"/>
+        </a>
+        <a href="">
+            <img alt="Title 7" src="20180817_3_3-min.jpg"/>
+        </a>
+        <a href="">
+            <img alt="Title 8" src="20180817_3_4-min.jpg"/>
+        </a>
+        <!-- other images... -->
+    </div>
+
+  </body>
+</html>
