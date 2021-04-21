@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<html lang="ko" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <meta description="">
+    <style type="text/css">
+        body, ul {margin:0; padding:0;}
+        ul li {list-style:none;}
+
+        .flip__input {margin:10px 20px;}
+        .btn__start, .btn_restart {margin-left:10px;}
+        /* IE 지원이 안됨 (transform-style:preserve-3d;) */
+        .filp__card {perspective:1000px; margin:30px 20px;}
+        .flip__in {display:inline-block; position:relative; margin-right:10px; width:215px; height:320px; transition:transform 0.8s; transform-style:preserve-3d;}
+        .flip__in.change {transform: rotateY(180deg);}
+        .flip__in .filp__front {position:absolute; top:0; left:0; width:100%; height:100%; -webkit-backface-visibility:hidden; backface-visibility:hidden;}
+        .flip__in .filp__back {position:absolute; top:0; left:0; width:100%; height:100%; -webkit-backface-visibility:hidden; backface-visibility:hidden; transform:rotateY(180deg);}
+
+    </style>
+</head>
+<body>
+    <div class="flip__input"><input type="text" name="filp_value" id="filp_cnt" class="filp__line"><label for="filp_cnt"></label>
+        <button class="btn__start" id="btn_start">시작</button>
+        <button class="btn__restart" id="btn_restart">다시시작</button>
+    </div>
+    <ul class="filp__card" id="filp__card"></ul>
+
+    <script type="text/javascript">
+
+        const card = {
+            createCard: function(initCnt){
+                let cardInfo = [];
+                for(let k = 0; k < initCnt; k++){
+                    cardInfo.push(
+                        {id: k, name :'card_'+k+'_on.png'}  
+                    );
+                }
+                dealer.shuffleCard(cardInfo);
+            }
+        }
+
+        const dealer = {
+            initCnt : this.initCnt,
+            correctCnt : 0,
+
+            shuffleCard : function(cardInfoObj){
+                //카드를 섞는다.
+                let shuffleObj = [];
+
+                for (let prop in cardInfoObj){
+                    shuffleObj.push(cardInfoObj[prop]);
+
+                }
+                shuffleObj = shuffleObj.concat(shuffleObj);
+                
+                let i = shuffleObj.length;
+
+                while(i--){
+                    let random = Math.floor(Math.random() * shuffleObj.length);
+                    let temp = shuffleObj[i];
+                    shuffleObj[i] = shuffleObj[random];
+                    shuffleObj[random] = temp;
+                }
+                this.shareCard(shuffleObj);
+            },
+
+            shareCard : function(shuffleObj){
+                //카드를 나눠준다.
+                for(let cardIndex=0; cardIndex<shuffleObj.length; cardIndex++) {
+                    let liNode = document.createElement('li');
+                    liNode.className = 'flip__in';
+                    liNode.innerHTML = ` <div class=filp__front>
+                                            <img src='card_off.png'>
+                                        </div>
+                                        <div class=filp__back>
+                                            <img src=`+shuffleObj[cardIndex].name+`>
+                                        </div>`;
+                    document.getElementById('filp__card').appendChild(liNode);
+                }
+                
+                player.clickCard(shuffleObj);
+
+            },
+
+            compareCard : function(firstCardObj, secondCardObj){
+                //카드를 비교한다.
+                setTimeout(function(){ //진개 말대로 setTimeout 하나로 해봄
+                    if(firstCardObj.card === secondCardObj.card){
+                        dealer.correctCnt++;
+                        dealer.endGame(dealer.correctCnt);
+                    } else {
+                        let clName = document.querySelectorAll(".flip__in");
+                        clName[firstCardObj.location].classList.remove('change');
+                        clName[secondCardObj.location].classList.remove('change');
+                    }
+                }, 800);
+            },
+
+            endGame : function(correctCnt){
+                //게임을 종료한다.
+                if(correctCnt === this.initCnt){
+                    alert("게임 종료");
+                }
+            }
+        }
+
+        const player = {
+            clickCnt : 0,
+            firstCardObj : {},
+            secondCardObj : {},
+
+            
+            restartGame : function(initCnt){
+                //카드게임 재시작 - 버튼 하나로 하고 싶었는데...ㅠㅠ 안된다 안돼
+
+                location.reload();
+                document.getElementById('btn_start').disabled = false;
+            },
+
+            startGame : function(){
+                //카드게임 시작
+                let initCnt = Number(document.getElementById('filp_cnt').value);
+
+                if(initCnt === 0 || initCnt >= 10 || initCnt === "" || isNaN(initCnt)) {
+                    alert("1~9까지 숫자를 입력해주세요");
+                    card.createCard(0);
+                    return false;
+                }
+
+                dealer.correctCnt = 0;
+
+                dealer.initCnt = initCnt;
+                card.createCard(initCnt);
+                document.getElementById('btn_start').disabled = true;
+            },
+
+            clickCard : function(shuffleObj){
+                //카드를 선택한다.
+                let clName = document.querySelectorAll(".flip__in");
+
+                for(let j=0; j<clName.length; j++){
+                    clName[j].addEventListener('click', function(){
+                        
+                        if(!clName[j].classList.contains("change")){
+                            clName[j].classList.add('change');
+
+                            if(Object.keys(player.firstCardObj).length == 0){
+                                player.firstCardObj.location = j;
+                                player.firstCardObj.card = shuffleObj[j].id;
+                            } else {
+                                player.secondCardObj.location = j;
+                                player.secondCardObj.card = shuffleObj[j].id;
+                            }
+
+                            player.clickCnt++;
+                        }
+
+                        if(player.clickCnt === 2){
+                            dealer.compareCard(player.firstCardObj, player.secondCardObj);
+                            player.firstCardObj = {};
+                            player.secondCardObj = {};
+                            player.clickCnt = 0;
+                        }
+                    })
+                }
+            }
+        }
+
+        let btnStart = document.getElementById('btn_start');
+        btn_start.addEventListener('click', function(){player.startGame();});
+        btn_restart.addEventListener('click', function(){player.restartGame()});
+
+    </script>
+</body>
+</html> 
