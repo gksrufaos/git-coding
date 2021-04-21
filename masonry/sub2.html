@@ -1,0 +1,112 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="masonry.pkgd.min.js"></script>
+    <style>
+        body {font-size:0;}
+        li {list-style: none;}
+        .galleryList{height:500px; width:800px;}
+        .galleryList img {margin-bottom:20px; width:auto; height:170px;} /* 높이가 같아야 함 */
+
+    </style>
+    <script type="text/javascript">
+        /*
+            Options
+            itemSelector, columnWidth 2가지 옵션은 사용하기를 추천
+            columnWidth 이 옵션이 없으면 첫번째 항목의 너비를 열 크기로 맞춰짐
+            gutter 수평 여백을 추가 / 수직 여백을 추가하려면 margin을 사용
+            horizontalOrder true면 왼쪽에서 오른쪽 순서대로 나열 / false면 순서 상관없이 빈공간에 나열 랜덤
+            fitWidth 컨테이너의 부모 요소의 크기에 따라 사용 가능한 열 수에 맞게 컨테이너의 너비를 설정 활성화 되면 css로 컨테이너를 중앙에 배치 가능
+            originLeft true면 왼쪽에서 오른쪽에 수평 흐름을 제어 false면 오른쪽에서 왼쪽으로 수평 흐름 제어 / 기본값 true
+            originTop true면 위에서 아래의 흐름을 제어 false면 아래에서 위로 수진 흐름 제어 / 기본값 true
+            containerStyle null 이 기본값
+
+            Methods
+            append(li 전체 - 추가할 element) element를 추가
+            prepend(li 전체 - 추가할 element) element를 시작 부분에 새로 추가 된 element를 추가
+            remove(li 전체 - 추가할 element) element를 삭제
+
+            jQuery에서 메서드는 jQuery UI 패턴을 따름
+        
+        */
+        $(document).ready(function () {
+            var $grid = $(".galleryList").masonry({
+                itemSelector: '.galleryListLi',
+                columnWidth:80, 
+                gutter:10,
+                horizontalOrder: true,
+                resize:true,
+                initLayout:true
+            });
+        });
+    </script>
+  </head>
+  <body>
+    <div id="mygallery" class="galleryList">
+      <ul>
+        <li class="galleryListLi">
+            <a href="">
+                <img alt="Title 1" src="wkl_t01_02-min.jpg"/>
+            </a>
+        </li>
+        <li class="galleryListLi">
+            <a href="">
+                <img alt="Title 2" src="wkl_t01_03-min.jpg"/>
+            </a>
+        </li>
+        <li class="galleryListLi">
+            <a href="">
+                <img alt="Title 3" src="20180731_gik_calendar3-min.jpg"/>
+            </a>
+        </li>
+        <li class="galleryListLi">
+            <a href="">
+                <img alt="Title 4" src="20180803_1-min.jpg"/>
+            </a>
+        </li>
+                <li class="galleryListLi">
+            <a href="">
+                <img alt="Title 5" src="20180817_3_1-min.jpg"/>
+            </a>
+        </li>
+        <li class="galleryListLi">
+            <a href="">
+                <img alt="Title 6" src="20180817_3_3-min.jpg"/>
+            </a>
+        </li>
+        <li class="galleryListLi">
+            <a href="">
+                <img alt="Title 7" src="20180731_gik_calendar3-min.jpg"/>
+            </a>
+        </li>
+        <li class="galleryListLi">
+            <a href="">
+                <img alt="Title 8" src="20180817_3-min.jpg"/>
+            </a>
+        </li>
+        <li class="galleryListLi">
+            <a href="">
+                <img alt="Title 9" src="20180803_2-min.jpg"/>
+            </a>
+        </li>
+        <li class="galleryListLi">
+            <a href="">
+                <img alt="Title 10" src="20180817_3_4-min.jpg"/>
+            </a>
+        </li>
+        <li class="galleryListLi">
+            <a href="">
+                <img alt="Title 11" src="GettyImages-1312631152.jpg"/>
+            </a>
+        </li>
+        <li class="galleryListLi">
+            <a href="">
+                <img alt="Title 12" src="GettyImages-1312788245.jpg"/>
+            </a>
+        </li>
+      </ul>
+        <!-- other images... -->
+    </div>
+
+  </body>
+</html>
